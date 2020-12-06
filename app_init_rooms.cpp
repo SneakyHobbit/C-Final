@@ -148,7 +148,7 @@ Room* initKeep()
     // create and initialize Dragon instance
     Bogie* pBogie = new Bogie();
     pBogie->setName(str = "Peruvian Vipertooth.");
-    pBogie->setText("Swwoooopp!!");
+    pBogie->setText("Hsssssss!!");
     pBogie->setPoints(250);
 
     // install Dragon pointer in Room's Dragon vector
@@ -293,7 +293,7 @@ Room* initCrypt()
     // create and initialize Dragon instance
     Bogie* pBogie = new Bogie();
     pBogie->setName(str = "Peruvian Vipertooth.");
-    pBogie->setText("Swwoooopp!!");
+    pBogie->setText("Hsssssss!!");
     pBogie->setPoints(300);
 
     // install Dragon pointer in Room's Dragon vector

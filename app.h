@@ -46,6 +46,8 @@ bool dropTreasure(Player* pP, Room* pR, std::vector<std::string>& msgQ);
 bool grabWeapon(Player* pP, Room* pR, std::vector<std::string>& msgQ);
 bool dropWeapon(Player* pP, Room* pR, std::vector<std::string>& msgQ);
 char defendSelf(Player* pP, Room* pR, std::vector<std::string>& msgQ);
+bool grabMagic(Player* pP, Room* pR, std::vector<std::string>& msgQ);
+bool dropMagic(Player* pP, Room* pR, std::vector<std::string>& msgQ);
 char incinerate(Player* pP, Room* pR, std::vector<std::string>& msgQ);
 bool lookAllDirections(Room* pR, std::vector<std::string>& msgQ);
 Room* movePlayer(Player* pP, Room* pR, int direction, std::vector<std::string>& msgQ, bool teleport = false);

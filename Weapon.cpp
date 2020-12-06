@@ -28,6 +28,6 @@ Weapon::Weapon(std::string wName)
 //
 // constructor
 //***********************************************************
-Weapon::Weapon() : Weapon("weapon of protection")
+Weapon::Weapon() : Weapon("Sword of a Thousand Truths")
 { }
 

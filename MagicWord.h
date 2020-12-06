@@ -10,37 +10,27 @@
 
 #include <string>
 
-#define MAGICWORD_CARRYIT   'm'
-// default MagicWord element characteristics
-#define MAX_POWER    10
-#define MIN_POWER    10
+// base class declaration
+#include "CarryIt.h"
 
-class MagicWord 
+//----------------------------------------------------------
+// Weapon class derived from base class for carried items
+//----------------------------------------------------------
+class MagicWord : public CarryIt
 {
 private:
-    int m_id;
-    int m_power;
-    int m_points;
-    int m_roomInfo;
-    int m_playerInfo;
-    std::string m_text;
-    std::string m_name;
-    int m_usesRemaining;  
+    int m_usesRemaining;
 
 public:
     MagicWord();
-    int getId() const;
-    bool setName(const std::string& name);
-    bool getName(std::string& name) const;
-    int addPoints(int points);
-    bool setPoints(int points);
-    int getPoints() const;
-    bool setText(const std::string& text);
-    bool getText(std::string& text) const;
-    bool setPower(int power);
-    int getPower() const;
-    int addPower(int morePower);
+    MagicWord(std::string mwName);
+    // Weapon persists for app lifetime
+    // so destructor not needed
+    //~Weapon();
 
+    bool setUsesRemaining(int uses);
+    int getUsesRemaining() const;
+    int addUsesRemaining(int uses);
 };
 
 #endif

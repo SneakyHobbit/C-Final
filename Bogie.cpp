@@ -26,4 +26,4 @@ Bogie::Bogie(std::string name)
 //
 // constructor
 //***********************************************************
-Bogie::Bogie() : Bogie("bogie") { }
+Bogie::Bogie() : Bogie("Smaug the Devourer") { }

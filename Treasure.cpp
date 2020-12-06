@@ -29,5 +29,5 @@ Treasure::Treasure(std::string tName)
 //
 // constructor
 //***********************************************************
-Treasure::Treasure() : Treasure("untold treasure") { }
+Treasure::Treasure() : Treasure("Versace Spectacles") { }
 

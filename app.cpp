@@ -119,17 +119,18 @@ int main()
         // drO)p weapon command
         else if (userCmd == 'o')
             dropWeapon(pPlayer, pRoom, messageQueue);
-
         // teleP)ort magic spell command
         else if (userCmd == 'p')
-        {
             pRoom = movePlayer(pPlayer, teleport(), direction, messageQueue, true);
-        }
-
+        // absorb M)agical energy
+        else if (userCmd == 'm')
+            grabMagic(pPlayer, pRoom, messageQueue);
+        // release mA)gical energy
+        else if (userCmd == 'a')
+            dropMagic(pPlayer, pRoom, messageQueue);
         // inC)inerate magic spell command
         else if (userCmd == 'c')
             userCmd = incinerate(pPlayer, pRoom, messageQueue);
-
         // I)nfo command
         else if (userCmd == 'i')
             getAllInfo(pPlayer, pRoom, messageQueue);
@@ -258,8 +259,9 @@ char menuOption()
     std::cout << std::endl;
     std::cout << "N)orth, S)outh, E)ast, W)est, U)p, D)own, L)ook,\n";
     std::cout << "G)et treasure, dR)op treasure,\n";
-    std::cout << "T)ake weapon, deF)end, drO)p weapon,\n";
-    std::cout << "teleP)ort, inC)inerate,\n";
+    std::cout << "T)ake weapon, deF)end, drO)p weapon,\n\n";
+    std::cout << "teleP)ort, absorb M)agical energy,\n";
+    std::cout << "release mA)gical energy, inC)inerate,\n";
     std::cout << "I)nfo, Q)uit ? ";
 
     // get user command

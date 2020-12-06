@@ -10,6 +10,7 @@
 
 #include "Element.h"
 
+#define MAGICWORD_CARRYIT   "m"
 #define TREASURE_CARRYIT    't'
 #define WEAPON_CARRYIT      'w'
 #define BOGIE_CARRYIT       'b'

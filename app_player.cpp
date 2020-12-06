@@ -274,6 +274,67 @@ bool interAct(Player * pP, Room * pR, std::vector<std::string> & msgQ)
 }
 
 /******************************************************************************
+* grabMagic()
+*
+* transfer Magic from Room to Player
+* add messages to caller's vector for display
+*******************************************************************************
+*/
+bool grabMagic(Player* pP, Room* pR, std::vector<std::string>& msgQ)
+{
+    MagicWord* pMW = pR->removeMagicWord();
+
+    if (pMW == nullptr)
+    {
+        msgQ.push_back("There's no Magic here.");
+        return false;
+    }
+
+    pP->addMagicWord(pMW);
+    std::string str;
+    pMW->getName(str);
+
+    // build message string with string stream
+    std::stringstream ss;
+    ss << "You have a " << str << " worth "
+        << pMW->getPoints() << " points";
+
+    // copy completed message string to caller's vector
+    msgQ.push_back(ss.str());
+
+    return true;
+}
+
+/******************************************************************************
+* dropWeapon()
+*
+* transfer Weapon from Player to Room
+* fill caller's vector with message strings for display
+*******************************************************************************
+*/
+bool dropMagic(Player* pP, Room* pR, std::vector<std::string>& msgQ)
+{
+    MagicWord* pMW = pP->removeMagicWord();
+
+    if (pMW == nullptr)
+    {
+        msgQ.push_back("You have no Magic to drop!");
+        return false;
+    }
+
+    // transfer Weapon from Player to Room
+    pR->addMagicWord(pMW);
+
+    // for queueing display message
+    std::string str;
+    pMW->getName(str);
+
+    msgQ.push_back("You dropped a " + str);
+
+    return true;
+}
+
+/******************************************************************************
 * incinerate()
 *
 * use magic on a Bogie
@@ -329,7 +390,7 @@ bool magicSpell(Player* pP, Room* pR, std::vector<std::string>& msgQ)
     // check for MagicWord in Player vector
     if (pP->getMagicWordCount() == 0)
     {
-        msgQ.push_back("Oh no! You have nothing to defend yourself with!");
+        msgQ.push_back("Oh no! You have no Magic to defend yourself with!");
         return false;
     }
 
@@ -351,7 +412,7 @@ bool magicSpell(Player* pP, Room* pR, std::vector<std::string>& msgQ)
     std::string bName;
     pB->getName(bName);
 
-    msgQ.push_back("You hurl a huge fireball at the" + bName +
+    msgQ.push_back("You hurl a huge fireball at the " + bName +
         " with your " + mwName + "!");
 
     // get text associated with this MagicWord
